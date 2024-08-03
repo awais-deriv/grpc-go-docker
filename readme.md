@@ -1,6 +1,6 @@
 This is a practice project.
 
-It has a Go gRPC server, a Go client to access the gRPC server, envoy proxy, React client to access gRPC server via envoy proxy.
+Stack: Protobuf, gRPC, Go, React, Envoy, Nginx
 
 
 Simply run these commands:
