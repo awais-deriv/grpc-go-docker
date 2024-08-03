@@ -8,7 +8,7 @@ Simply run these commands:
 ```
 mkdir client/generated
 mkdir server/generated
-mkdir fe_cleint/src/generated
+mkdir fe_client/src/generated
 ```
 
 Setting up protobuf and clients (Mac)
