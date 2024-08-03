@@ -13,25 +13,18 @@ mkdir fe_client/src/generated
 
 Setting up protobuf and clients (Mac)
 ```
-brew install protobuf
-
-```
-
-```
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 ```
 
 ```
+brew install protobuf
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 ```
 
 ```
-npm install protobufjs
-```
-
-```
-brew install protoc-gen-grpc-web
+export PATH="$PATH:$(go env GOPATH)/bin"
+source ~/.zshrc
 ```
 
 For the server directory
@@ -45,6 +38,14 @@ protoc --go_out=./client/generated --go-grpc_out=./client/generated proto/hello.
 ```
 
 For the React app directory
+```
+npm install -g protobufjs
+```
+
+```
+brew install protoc-gen-grpc-web
+```
+
 ```
 protoc -I=proto proto/hello.proto \
   --js_out=import_style=commonjs:fe_client/src/generated \
