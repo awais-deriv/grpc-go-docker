@@ -1,0 +1,45 @@
+services: 
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "50051:50051"
+    networks:
+      - grpc-network
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    depends_on:
+      - server
+    networks:
+      - grpc-network
+  
+  fe_client:
+    build:
+      context: ./fe_client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - server
+      - envoy
+    networks:
+      - grpc-network
+
+  envoy:
+    image: envoyproxy/envoy:v1.31-latest
+    volumes:
+      - ./envoy.yml:/etc/envoy/envoy.yaml  # Mount Envoy configuration file
+    ports:
+      - "10000:10000" # Expose Envoy's port
+    networks:
+      - grpc-network
+    depends_on:
+      - server
+
+networks:
+  grpc-network:
+    driver: bridge
