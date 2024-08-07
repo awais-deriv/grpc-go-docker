@@ -39,6 +39,7 @@ protoc --go_out=./client/generated --go-grpc_out=./client/generated proto/hello.
 
 For the React app directory
 ```
+cd fe_react
 npm install -g protobufjs
 ```
 
@@ -54,6 +55,7 @@ protoc -I=proto proto/hello.proto \
 
 
 For Mac:
+Inside the project directory
 ```
 docker compose up --build
 ```
