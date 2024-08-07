@@ -39,7 +39,6 @@ protoc --go_out=./client/generated --go-grpc_out=./client/generated proto/hello.
 
 For the React app directory
 ```
-cd fe_react
 npm install -g protobufjs
 ```
 
